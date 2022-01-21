@@ -13,42 +13,47 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
-
   @override
-  void initState(){
+  void initState() {
     controller.getUser();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
-          floatingActionButton: buttonListFriends(),
-          body: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              Observer(builder: (_){
-                if(controller.usersModel == null){
-                  return buildTopProfile(null);
-                }else{
-                  return buildTopProfile(controller.usersModel!.results[0].picture.medium);
-                }
-              }),
-              Observer(builder: (_){
-                if(controller.usersModel == null){
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }else{
-                  return buildContentProfile(
-                    nome: controller.usersModel!.results[0].name.first,
-                    genero: controller.usersModel!.results[0].gender,
-                    email: controller.usersModel!.results[0].email,
-                    telefone: controller.usersModel!.results[0].cell,
-                  );
-                }
-              })
-              /*FutureBuilder(
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+            onPressed: ()=> Modular.to.pushNamed('/list/'),
+            child: const Icon(
+                Icons.person
+            ),
+        ),
+        body: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Observer(builder: (_) {
+              if (controller.usersModel == null) {
+                return buildTopProfile(null);
+              } else {
+                return buildTopProfile(
+                    controller.usersModel!.results[0].picture.medium);
+              }
+            }),
+            Observer(builder: (_) {
+              if (controller.usersModel == null) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                return buildContentProfile(
+                  nome: controller.usersModel!.results[0].name.first,
+                  genero: controller.usersModel!.results[0].gender,
+                  email: controller.usersModel!.results[0].email,
+                  telefone: controller.usersModel!.results[0].cell,
+                );
+              }
+            })
+            /*FutureBuilder(
                   future: controller.getUser(),
                   builder: (context, snapshot){
                     if(snapshot.hasData){
@@ -65,9 +70,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                     }
                     return Container();
                   })*/
-            ],
-          )
-      );
+          ],
+        ));
   }
 }
-

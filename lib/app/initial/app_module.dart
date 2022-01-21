@@ -1,3 +1,4 @@
+import 'package:cuco_health_flutter/app/modules/listFriends/listFriends_module.dart';
 import 'package:cuco_health_flutter/app/modules/splashScreen/splashScreen_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -9,8 +10,9 @@ class AppModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute(Modular.initialRoute, module: SplashScreenModule()),
-    ModuleRoute('/secondinitial', module: HomeModule()),
+    ModuleRoute('/spash/', module: SplashScreenModule()),
+    ModuleRoute('/home/', module: HomeModule()),
+    ModuleRoute('/list/', module: ListFriendsModule())
   ];
 
 }

@@ -44,15 +44,6 @@ Widget buildContentProfile({required String nome,required String genero,
   );
 }
 
-Widget buttonListFriends(){
-  return FloatingActionButton(
-    onPressed: (){},
-    child: const Icon(
-        Icons.person
-    ),
-  );
-}
-
 Widget buildTopProfile(String? image){
   return Stack(
     clipBehavior: Clip.none,

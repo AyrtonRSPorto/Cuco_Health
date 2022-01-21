@@ -10,6 +10,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Cuco Health',
       theme: ThemeData(primarySwatch: Colors.blue),
+      initialRoute: '/spash/',
     ).modular();
   }
 }
