@@ -4,6 +4,8 @@ import 'package:cuco_health_flutter/app/modules/splashScreen/splashScreen_store.
 import 'package:flutter/material.dart';
 
 class SplashScreenPage extends StatefulWidget {
+  const SplashScreenPage({Key? key}) : super(key: key);
+
   @override
   SplashScreenPageState createState() => SplashScreenPageState();
 }

@@ -15,9 +15,7 @@ abstract class HomeStoreBase with Store {
   @action
   getUser() async{
    try{
-       await _repositoryUser.getUser().then((value){
-         usersModel = value;
-       });
+       usersModel =  await _repositoryUser.getUserRepository();
    } catch (e){
      throw Exception(e);
    }
